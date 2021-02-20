@@ -8,9 +8,9 @@ import { SubmitButton } from '../../../../components/Button';
 function UserNameForm({ className, setUserName, userName, ...props }) {
   return (
     <div className={className}>
+      <h1 className='title'>ชื่อของคุณ</h1>
       <TextField
         name='userName'
-        title='ชื่อของคุณ'
         autoComplete={false}
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
@@ -28,6 +28,10 @@ const StyledUserNameForm = styled(UserNameForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .title {
+    margin-bottom: 40px;
+  }
 
   ${TextField} {
     width: 100%;

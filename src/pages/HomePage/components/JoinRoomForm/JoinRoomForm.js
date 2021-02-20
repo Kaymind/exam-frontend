@@ -16,10 +16,10 @@ function JoinRoomForm({
 }) {
   return (
     <div className={className}>
+      <h1 className='title'>เข้าร่วมแชท</h1>
       <TextField
         ref={inputRef}
         name='roomName'
-        title='เข้าร่วมแชท'
         autoComplete={false}
         placeholder='ชื่อห้อง'
         error={hasChatRoom}
@@ -40,6 +40,10 @@ const StyledJoinRoomForm = styled(JoinRoomForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .title {
+    margin-bottom: 40px;
+  }
 
   ${TextField} {
     width: 100%;

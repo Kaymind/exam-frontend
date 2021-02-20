@@ -14,10 +14,10 @@ function CreateRoomForm({
 }) {
   return (
     <div className={className}>
+      <h1 className='title'>สร้างห้องใหม่</h1>
       <TextField
         ref={inputRef}
         name='roomName'
-        title='สร้างห้องใหม่'
         autoComplete={false}
         onChange={(e) => setRoomName(e.target.value)}
       />
@@ -35,6 +35,10 @@ const StyledCreateRoomForm = styled(CreateRoomForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .title {
+    margin-bottom: 40px;
+  }
 
   ${TextField} {
     width: 100%;
