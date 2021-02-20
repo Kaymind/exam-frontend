@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { ifProp, theme } from 'styled-tools';
 
@@ -7,17 +8,19 @@ const Input = styled.input`
   width: 100%;
 `;
 
-function TextField({
-  className,
-  title = '',
-  error,
-  placeholder = '',
-  autoComplete = true,
-  placeholderCustom,
-  withError = false,
-  chatBox = false,
-  ...props
-}) {
+const TextField = forwardRef((forwardedProps, ref) => {
+  const {
+    className,
+    title = '',
+    error,
+    placeholder = '',
+    autoComplete = true,
+    placeholderCustom,
+    withError = false,
+    chatBox = false,
+    ...props
+  } = forwardedProps;
+
   const type = 'input';
   const showError = error;
 
@@ -33,17 +36,19 @@ function TextField({
           <span className='placeholder'>{placeholderCustom}</span>
         )}
         <Input
+          ref={ref}
           as={type}
           {...props}
           placeholder={placeholder}
           error={showError}
+          className={chatBox ? 'chat-box' : ''}
           autoComplete={autoComplete ? 'on' : 'off'}
         />
         {showError && <div className='error'>{error}</div>}
       </div>
     </Container>
   );
-}
+});
 
 const StyledTextField = styled(TextField)`
   > .title {
@@ -59,11 +64,16 @@ const StyledTextField = styled(TextField)`
     border: 3px solid ${theme('colors.inputBorder')};
     outline: none;
     height: 60px;
+    text-align: center;
 
     &::placeholder {
       color: ${theme('colors.buttonText')};
       font-weight: normal;
       text-align: center;
+    }
+
+    &.chat-box {
+      text-align: left;
     }
   }
 

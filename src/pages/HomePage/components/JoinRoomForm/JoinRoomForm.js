@@ -11,11 +11,13 @@ function JoinRoomForm({
   roomName,
   handleGoBack,
   hasChatRoom,
+  inputRef,
   ...props
 }) {
   return (
     <div className={className}>
       <TextField
+        ref={inputRef}
         name='roomName'
         title='เข้าร่วมแชท'
         autoComplete={false}

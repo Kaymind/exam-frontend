@@ -9,11 +9,13 @@ function CreateRoomForm({
   roomName,
   setRoomName,
   handleGoBack,
+  inputRef,
   ...props
 }) {
   return (
     <div className={className}>
       <TextField
+        ref={inputRef}
         name='roomName'
         title='สร้างห้องใหม่'
         autoComplete={false}
