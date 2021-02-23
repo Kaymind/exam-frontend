@@ -40,6 +40,8 @@ const StyledJoinRoomForm = styled(JoinRoomForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  animation: ${fadeInFromBottom} 0.4s ease-in 0.15s backwards;
 
   .title {
     margin-bottom: 40px;
@@ -47,16 +49,12 @@ const StyledJoinRoomForm = styled(JoinRoomForm)`
 
   ${TextField} {
     width: 100%;
-    position: relative;
-    animation: ${fadeInFromBottom} 0.4s ease-out;
   }
 
   .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    animation: ${fadeInFromBottom} 0.4s ease-in 0.15s backwards;
 
     ${SubmitButton} {
       &:disabled {
